@@ -1,12 +1,16 @@
 
 import operator
+import math
 
+def mycarat(arg1, arg2):
+    return arg1**arg2
 
 operators = {
     '+': operator.add,
     '-': operator.sub,
     '*': operator.mul,
     '/': operator.truediv,
+    '^': mycarat
 }
 
 def calculate(arg):
@@ -21,7 +25,7 @@ def calculate(arg):
             arg1 = stack.pop()
             result = function(arg1, arg2)
             stack.append(result)
-        print(stack)
+        #print(stack)
     if len(stack) != 1:
         raise TypeError("Too many parameters")
     return stack.pop()
